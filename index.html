@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EMKT</title>
+  <!-- 
+    Nota: usamos estilos no <head> para quando o arquivo for aberto no navegador
+    e estilos inline para compatibilidade com clientes de e-mail.
+    Não há JavaScript nem fontes externas.
+  -->
+  <style>
+    /* Estilos para navegação em browser (não quebra clientes de e-mail) */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #ffffff;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Quando aberto no browser, faz a imagem ocupar toda a viewport mantendo proporção */
+    .browser-fullscreen {
+      display: none; /* escondemos por padrão para clientes de e-mail que ignoram CSS head */
+    }
+
+    @media screen {
+      .browser-fullscreen {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .browser-fullscreen img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover; /* preenche a tela sem distorcer (corte se necessário) */
+        display: block;
+      }
+    }
+
+    /* Mobile friendly: dentro do container de 600px, garantimos boa apresentação */
+    @media only screen and (max-width: 620px) {
+      .container {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+      .container img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#ffffff;font-family: Arial, Helvetica, sans-serif;">
+
+  <!--
+    1) Bloco otimizado para clientes de e-mail (usa tabela, largura ~600px, CSS inline).
+    2) Substitua a URL abaixo por sua imagem absoluta HTTPS.
+    3) Alt obrigatório para acessibilidade.
+  -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
+    <tr>
+      <td align="center" style="padding:0;margin:0;">
+        <!-- Container com largura máxima (boa prática para e-mails) -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="container"
+               style="width:600px;max-width:600px;border-collapse:collapse;">
+          <tr>
+            <td style="padding:0;margin:0;line-height:0;">
+              <!-- Imagem principal: use URL absoluta (https://...) -->
+              <img
+                src="https://cdn.seudominio.com/imagens/banner.jpg"
+                alt="Banner da campanha - substitua por sua imagem"
+                width="600"
+                style="
+                  display:block;
+                  width:100% !important;
+                  max-width:600px;
+                  height:auto !important;
+                  border:0;
+                  outline:none;
+                  text-decoration:none;
+                  -ms-interpolation-mode:bicubic;
+                "
+              />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!--
+    Bloco extra: quando aberto em navegador moderno, permite que imagem preencha toda a tela
+    (útil para pré-visualizar como "capa" em tela cheia). Não afeta clientes de e-mail.
+    Mantenha a mesma URL da imagem acima se quiser que o efeito ocupe toda a viewport.
+  -->
+  <div class="browser-fullscreen" aria-hidden="true" style="display:none;">
+    <img
+      src="https://cdn.seudominio.com/imagens/banner.jpg"
+      alt=""
+      style="width:100vw;height:100vh;object-fit:cover;display:block;border:0;outline:none;text-decoration:none;"
+    />
+  </div>
+
+  <!-- Fim do documento -->
+</body>
+</html>
